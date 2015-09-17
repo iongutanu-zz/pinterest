@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+<div class="panel-heading"><h2><%= @page_title %></h2></div>
+
+	<div class="panel-body">
+		<table class="table table-stripped table-hover">
+			<thead>
+				<tr class="info">
+				  <th>Description</th>
+				  <th colspan="3"></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @pins.each do |pin| %>
+				  <tr class="default">
+				    <td><%= pin.description %></td>
+				    <td><%= link_to 'Show', pin %></td>
+				    <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+				    <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				  </tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-footer">
+		<%= link_to 'New Pin', new_pin_path %>
+	</div>
+</div>
