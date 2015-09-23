@@ -2,8 +2,11 @@
 <div class="panel-heading"><h2><%= @page_title %></h2></div>
 
 	<div class="panel-body">
+		<%= image_tag @pin.image.url(:medium) %>
+	<p>
 		<strong>Description:</strong>
 		<%= @pin.description %>
+	</p>	
 	</div>
 	<div class="panel-footer">
 		<%= link_to 'Edit', edit_pin_path(@pin) %> |

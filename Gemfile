@@ -51,5 +51,7 @@ group :production do
 	gem 'rails_12factor'
 end
 
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
 gem 'bootstrap-sass'
 gem 'devise', '~> 3.5.2'
