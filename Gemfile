@@ -51,7 +51,9 @@ group :production do
 	gem 'rails_12factor'
 end
 
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'carrierwave'
+gem 'attachinary'
+gem 'cloudinary'
 
 gem 'bootstrap-sass'
 gem 'devise', '~> 3.5.2'

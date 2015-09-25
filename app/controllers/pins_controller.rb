@@ -2,6 +2,7 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
 	before_action :correct_user, only: [:edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
+  before_filter :check_configuration
 
   def index
     @pins = Pin.all
@@ -43,6 +44,10 @@ class PinsController < ApplicationController
   def destroy
     @pin.destroy
     redirect_to pins_url, notice: 'Pin was successfully destroyed.'
+  end
+
+  def check_configuration
+    redirect_to root_path, notice: 'Cloudinary configuration missing !' if Cloudinary.config.api_key.blank?
   end
 
   private

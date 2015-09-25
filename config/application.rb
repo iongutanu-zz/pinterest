@@ -25,5 +25,6 @@ module Pinterest
 
 		# Required for Heroku
 		config.assets.initialize_on_precompile = false
+		require "attachinary/orm/active_record"
   end
 end

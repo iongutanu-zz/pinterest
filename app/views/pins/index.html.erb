@@ -15,7 +15,10 @@
 			<tbody>
 				<% @pins.each do |pin| %>
 				  <tr class="default">
-						<td><%= image_tag pin.image.url(:thumb) %></td>
+						<td><% if pin.image? %>
+    								<%= cl_image_tag(pin.image.path, { size: '100x100', crop: :thumb, gravity: :face }) %>
+								<% end %>
+						</td>
 				    <td><%= pin.description %></td>
 						<td><%= pin.user.email if pin.user %></td>
 				    <td><%= link_to 'Show', pin %></td>
