@@ -1,19 +1,27 @@
-<div class="panel panel-default">
-<div class="panel-heading"><h2><%= @page_title %></h2></div>
-
-	<div class="panel-body">
-			<% if @pin.image? %>
-					<%= cl_image_tag(@pin.image.path, { size: '300x300', crop: :thumb, gravity: :face }) %>
-			<% end %>
-	<p>
-		<strong>Description:</strong>
-		<%= @pin.description %>
-	</p>	
-	</div>
-	<div class="panel-footer">
-		<%= link_to 'Edit', edit_pin_path(@pin) %> |
-		<%= link_to 'Back', pins_path %>
+	<%= link_to pins_path do %>
+		<span class="glyphicon glyphicon-arrow-left"></span> Back
+	<% end %>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading center">
+					<% if @pin.image? %>
+							<%= cl_image_tag(@pin.image.path, { size: '700x550', crop: :fit }) %>
+					<% end %>
+			</div>
+			<div class="panel-body">
+				<p><%= @pin.description %></p>
+				<% if @pin.user.first_name && @pin.user.last_name %>
+				<p><strong><%= @pin.user.first_name %> <%= @pin.user.last_name %></strong></p>
+				<% else %>
+				<p><strong><%= @pin.user.email %></strong></p>
+				<% end %>
+			</div>
+			<div class="panel-footer">
+				<%= link_to edit_pin_path(@pin) do %>
+					<span class="glyphicon glyphicon-edit"></span> Edit
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
-
-
