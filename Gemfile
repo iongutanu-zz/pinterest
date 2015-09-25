@@ -18,6 +18,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -47,13 +48,13 @@ group :development do
 end
 
 group :production do
-	gem 'pg'
+	gem 'pg', '~> 0.18.3'
 	gem 'rails_12factor'
 end
 
-gem 'carrierwave'
-gem 'attachinary'
+gem 'attachinary', '~> 1.3.0'
 gem 'cloudinary'
 
 gem 'bootstrap-sass'
 gem 'devise', '~> 3.5.2'
+gem 'masonry-rails', '~> 0.2.4'

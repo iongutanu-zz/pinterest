@@ -19,6 +19,7 @@
 //= require cloudinary
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
+//= require masonry/jquery.masonry
 //= require_tree .
 
 $('.attachinary-input').attachinary();

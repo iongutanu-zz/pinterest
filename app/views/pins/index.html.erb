@@ -1,39 +1,24 @@
-<div class="panel panel-default">
-<div class="panel-heading"><h2><%= @page_title %></h2></div>
-
-	<div class="panel-body">
-		<table class="table table-stripped table-hover">
-			<thead>
-				<tr class="info">
-					<th>Image</th>
-					<th>Description</th>
-					<th>User</th>
-				  <th colspan="3"></th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @pins.each do |pin| %>
-				  <tr class="default">
-						<td><% if pin.image? %>
-    								<%= cl_image_tag(pin.image.path, { size: '100x100', crop: :thumb, gravity: :face }) %>
-								<% end %>
-						</td>
-				    <td><%= pin.description %></td>
-						<td><%= pin.user.email if pin.user %></td>
-				    <td><%= link_to 'Show', pin %></td>
-					<% if pin.user == current_user %>
-				    <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-				    <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				  </tr>
-					<% end %>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-	<div class="panel-footer">
-		<% if user_signed_in? %>
-			<%= link_to 'New Pin', new_pin_path %>
+<h2><%= @page_title %></h2>
+<div id="pins" class="transitions-enabled">
+	<% @pins.each do |pin| %>
+	<div class="box panel panel-default">
+	  	<% if pin.image? %>
+			<%= cl_image_tag(pin.image.path, {  size: '200x200',crop: :fit}) %>
 		<% end %>
-	</div>
+		<div class="panel-body">
+	    <%= pin.description %>
+			<% if pin.user.first_name && pin.user.last_name %>
+				<%= pin.user.first_name %> <%= pin.user.last_name %>
+				<% else %>
+				<%= pin.user.email %>
+			<% end %></div>
+				<div class="panel-footer">
+		<%= link_to 'Show', pin %>
+		<% if pin.user == current_user %>
+	    <%= link_to 'Edit', edit_pin_path(pin) %>
+	    <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+		</div>
+		</div>
+	<% end %>
 </div>
