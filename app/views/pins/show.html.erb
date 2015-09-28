@@ -1,7 +1,7 @@
 	<%= link_to pins_path do %>
 		<span class="glyphicon glyphicon-arrow-left"></span> Back
 	<% end %>
-<div class="row">
+<div class="row-fluid">
 	<div class="col-md-offset-2 col-md-8">
 		<div class="panel panel-default">
 			<div class="panel-heading center">
@@ -18,8 +18,10 @@
 				<% end %>
 			</div>
 			<div class="panel-footer">
-				<%= link_to edit_pin_path(@pin) do %>
-					<span class="glyphicon glyphicon-edit"></span> Edit
+				<% if @pin.user == current_user %>
+					<%= link_to edit_pin_path(@pin) do %>
+						<span class="glyphicon glyphicon-edit"></span> Edit
+					<% end %>
 				<% end %>
 			</div>
 		</div>

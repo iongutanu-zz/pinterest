@@ -3,19 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #pins {
 	margin: 0 auto;
+	width: 80%;
 }
 
 .box {
 	width: 200px;
 	height: auto;
- 	background: #FFF;
- 	padding: 5px;
+ 	background: #B2D2DF;
+ 	padding: 3px;
  	margin-left: 10px;
  	margin-bottom: 20px;
- 	border-radius: 5px;
+ 	border-radius: 3px;
 	}
 
 .box img {
 	width: 100%;
 	height: auto;
+	border-radius: 2px;
 }

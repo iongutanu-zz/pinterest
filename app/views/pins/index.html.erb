@@ -1,28 +1,34 @@
-<%= render 'pages/home.html.erb' unless user_signed_in?%>
 
-<div id="pins" class="transitions-enabled center">
-	<% @pins.each do |pin| %>
-	<div class="box panel panel-default">
-	  	<% if pin.image? %>
-			<%= link_to (cl_image_tag(pin.image.path, {  crop: :fit})), pin %>
-		<% end %>
-		<div class="panel-body">
-	    <%= pin.description %>
-			<% if pin.user.first_name && pin.user.last_name %><br>
-				<strong><%= pin.user.first_name %> <%= pin.user.last_name %></strong>
-				<% else %>
-				<strong><%= pin.user.email %></strong>
-			<% end %></div>
-		<% if pin.user == current_user %>
-	    <div class="panel-footer">
-		<%= link_to edit_pin_path(pin) do %>
-			<span class="glyphicon glyphicon-edit"></span> Edit
-		<% end %> | 
-	    <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' }  do %>
-			<span class="glyphicon glyphicon-trash"></span> Delete
-	    <% end %>
+<%= render 'pages/home.html.erb' unless user_signed_in?%>
+<div class="row-fluid">
+	<div class="col-md-12">
+		<div id="pins" class="transitions-enabled center">
+			<% @pins.each do |pin| %>
+				<div class="box panel panel-default">
+				  	<% if pin.image? %>
+						<%= link_to (cl_image_tag(pin.image.path, {  crop: :fit})), pin %>
+					<% end %>
+					<div class="panel-body">
+					    <%= pin.description %>
+						<% if pin.user.first_name && pin.user.last_name %><br>
+							<strong><%= pin.user.first_name %> <%= pin.user.last_name %></strong>
+							<% else %>
+							<strong><%= pin.user.email %></strong>
+						<% end %>
+					</div>
+					<% if pin.user == current_user %>
+					    <div class="panel-footer">
+							<%= link_to edit_pin_path(pin) do %>
+								<span class="glyphicon glyphicon-edit"></span> Edit
+							<% end %> | 
+						    <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+								<span class="glyphicon glyphicon-trash"></span> Delete
+						    <% end %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
 		</div>
-		<% end %>
-		</div>
-	<% end %>
+		<div class="center"><%= will_paginate @pins, renderer: BootstrapPagination::Rails %></div>
+	</div>
 </div>

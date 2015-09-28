@@ -14,3 +14,7 @@
  *= require_tree .
  *= require_self
  */
+.pin-new {
+	color: #c0392b;
+	font-weight: bold;
+}
