@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.1.7'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.11.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -36,7 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-	gem 'sqlite3'
+	gem 'sqlite3', '~> 1.3.0'
 end
 
 group :development do
@@ -56,7 +56,7 @@ gem 'attachinary', '~> 1.3.0'
 gem 'cloudinary'
 
 gem 'bootstrap-sass'
-gem 'devise', '~> 3.5.2'
+gem 'devise', '~> 4.7.1'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
